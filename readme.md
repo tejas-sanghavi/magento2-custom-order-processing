@@ -13,9 +13,9 @@ This Magento 2 module enhances order processing workflow by providing a REST API
 
 ### Manual Installation
 
-1. Upload the zip under directory structure in your Magento installation:
+1. Upload the code under directory structure in your Magento installation:
    ```
-   app/code/
+   app/code/Vendor/CustomOrderProcessing/
    ```
 
 2. Enable the module:
