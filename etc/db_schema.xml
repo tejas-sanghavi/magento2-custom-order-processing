@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="vendor_order_status_log" resource="default" engine="innodb" comment="Order Status Change Log">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="order_id" unsigned="true" nullable="false" comment="Order ID"/>
+        <column xsi:type="varchar" name="increment_id" nullable="false" length="50" comment="Order Increment ID"/>
+        <column xsi:type="varchar" name="old_status" nullable="false" length="32" comment="Old Order Status"/>
+        <column xsi:type="varchar" name="new_status" nullable="false" length="32" comment="New Order Status"/>        
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="VENDOR_ORDER_STATUS_LOG_ORDER_ID" indexType="btree">
+            <column name="order_id"/>
+        </index>
+        <index referenceId="VENDOR_ORDER_STATUS_LOG_INCREMENT_ID" indexType="btree">
+            <column name="increment_id"/>
+        </index>
+    </table>
+</schema>
